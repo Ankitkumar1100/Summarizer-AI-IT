@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./src/**/*.{html,js,jsx}"],
+module.exports = {
+  content: ["./src/**/*.{html,js,jsx}"], // Include all your content files
+  darkMode: "class", // Enable dark mode with the 'class' strategy
   theme: {
     extend: {
       fontFamily: {
@@ -9,5 +10,8 @@ export default {
       },
     },
   },
-  plugins: [],
+  variants: {
+    extend: {}, // If you want to extend any variants, add here
+  },
+  plugins: [], // You can add Tailwind plugins here if needed
 };

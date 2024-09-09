@@ -1,5 +1,5 @@
+// Hero.jsx
 import React from "react";
-
 import { logo } from "../assets";
 
 const Hero = () => {
@@ -24,9 +24,8 @@ const Hero = () => {
         <span className="blue_gradient ">RAPID APIs</span>
       </h1>
       <h2 className="desc">
-        Simplify your reading with Summarizer-Ai, an open-source article
-        summarizer that transforms lengthy articles into clear and concise
-        summaries.
+        Simplify your reading with Summize, an open-source article summarizer
+        that transforms long articles into clear and concise summaries
       </h2>
     </header>
   );
