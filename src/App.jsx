@@ -1,8 +1,6 @@
-// App.jsx
 import React, { useState } from "react";
 import Hero from "./components/Hero";
 import Demo from "./components/Demo";
-import Switch from "./components/Switch";
 import "./App.css";
 
 const App = () => {
@@ -19,12 +17,8 @@ const App = () => {
       </div>
 
       <div className="app">
-        {/* Dark mode switch at the top right corner */}
-        <div className="flex justify-between w-full mb-1">
-          <h2></h2>
-          <Switch onChange={toggleDarkMode} />
-        </div>
-        <Hero />
+        {/* Hero now controls the switch */}
+        <Hero toggleDarkMode={toggleDarkMode} />
         <Demo />
       </div>
     </main>

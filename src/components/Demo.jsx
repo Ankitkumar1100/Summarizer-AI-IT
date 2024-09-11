@@ -1,19 +1,18 @@
-// Demo.jsx
 import React, { useState, useEffect } from "react";
 import { copy, linkIcon, loader, tick } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article";
-import Switch from "./Switch";
 
 const Demo = () => {
   const [article, setArticle] = useState({ url: "", summary: "" });
   const [allArticles, setAllArticles] = useState([]);
   const [copied, setCopied] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
 
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
   useEffect(() => {
-    const articlesFromLocalStorage = JSON.parse(localStorage.getItem("articles"));
+    const articlesFromLocalStorage = JSON.parse(
+      localStorage.getItem("articles")
+    );
     if (articlesFromLocalStorage) {
       setAllArticles(articlesFromLocalStorage);
     }
@@ -21,7 +20,9 @@ const Demo = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const existingArticle = allArticles.find((item) => item.url === article.url);
+    const existingArticle = allArticles.find(
+      (item) => item.url === article.url
+    );
     if (existingArticle) return setArticle(existingArticle);
 
     const { data } = await getSummary({ articleUrl: article.url });
@@ -47,16 +48,8 @@ const Demo = () => {
     }
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
-
   return (
-    <section className={`mt-1 w-full max-w-xl ${darkMode ? "dark-mode" : ""}`}>
-      {/* <div className="flex justify-between mb-2">
-        <h2></h2>
-        <Switch onChange={toggleDarkMode} />
-      </div> */}
+    <section className="mt-1 w-full max-w-xl">
       <div className="flex flex-col w-full gap-2">
         <form
           className="relative flex justify-center items-center"
